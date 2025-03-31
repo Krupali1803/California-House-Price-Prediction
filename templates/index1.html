@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>California House Price Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 5px; }
+        button { margin-top: 20px; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { margin-top: 20px; font-size: 1.2em; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>California House Price Prediction</h1>
+    <form method="post">
+        <label for="medinc">Median Income:</label>
+        <input type="number" step="any" name="medinc" required>
+
+        <label for="houseage">House Age:</label>
+        <input type="number"  name="houseage" required>
+
+        <label for="averooms">Average Rooms:</label>
+        <input type="number" step="any" name="averooms" required>
+
+        <label for="avebedrms">Average Bedrooms:</label>
+        <input type="number" step="any" name="avebedrms" required>
+
+        <label for="population">Population:</label>
+        <input type="number" name="population" required>
+
+        <label for="aveoccup">Average Occupancy:</label>
+        <input type="number" step="any" name="aveoccup" required>
+
+        <label for="latitude">Latitude:</label>
+        <input type="number" step="any" name="latitude" required>
+
+        <label for="longitude">Logitude:</label>
+        <input type="number" step="any" name="longitude" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        Predicted House Price: {{ prediction }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="result" style="color: red;">
+        Error: {{ error }}
+    </div>
+    {% endif %}
+
+</body>
+</html>
+
+
